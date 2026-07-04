@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maddineni Jitendra | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Outfit',sans-serif;
+    background:#0a0a0f;
+    color:white;
+    overflow-x:hidden;
+}
+
+:root{
+    --bg:#0a0a0f;
+    --bg2:#12121a;
+    --card:#181823;
+    --accent:#7f77dd;
+    --green:#20b486;
+    --muted:#a0a0a8;
+    --border:rgba(255,255,255,0.08);
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(10,10,15,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:'DM Serif Display',serif;
+    font-size:28px;
+    text-decoration:none;
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--muted);
+    font-size:13px;
+    text-transform:uppercase;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 20px 60px;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,var(--accent),transparent 70%);
+    opacity:0.12;
+    top:10%;
+    left:30%;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    width:100%;
+    position:relative;
+    z-index:2;
+}
+
+.hero-subtitle,
+.section-label{
+    color:var(--green);
+    font-family:'DM Mono',monospace;
+    letter-spacing:2px;
+    font-size:13px;
+    margin-bottom:16px;
+}
+
+.hero h1,
+.section-title{
+    font-family:'DM Serif Display',serif;
+}
+
+.hero h1{
+    font-size:82px;
+    line-height:1.1;
+}
+
+.hero p{
+    max-width:700px;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-outline{
+    border:1px solid var(--border);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.stats{
+    display:flex;
+    gap:50px;
+    margin-top:60px;
+    flex-wrap:wrap;
+}
+
+.stat h2{
+    font-family:'DM Serif Display',serif;
+    font-size:42px;
+}
+
+.stat p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+section{
+    padding:100px 20px;
+}
+
+.section-title{
+    font-size:52px;
+    margin-bottom:50px;
+}
+
+.bg{
+    background:var(--bg2);
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:16px;
+    border:1px solid var(--border);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent);
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.exp-list{
+    padding-left:20px;
+}
+
+.exp-list li{
+    color:var(--muted);
+    margin-bottom:10px;
+    line-height:1.8;
+}
+
+.projects-grid,
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.tech-stack,
+.skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.tech{
+    padding:8px 14px;
+    background:rgba(127,119,221,0.15);
+    color:#d8d2ff;
+    border-radius:30px;
+    font-size:13px;
+}
+
+.skill-tag{
+    padding:8px 14px;
+    background:rgba(32,180,134,0.15);
+    color:#8df0c8;
+    border-radius:30px;
+    font-size:13px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid var(--border);
+    color:#888;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:48px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .grid-2{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .stats{
+        gap:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-container">
+<a href="#" class="logo">MJ</a>
+
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#leadership">Leadership</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+
+<div class="hero-subtitle">
+SOFTWARE ENGINEER • CSE STUDENT
+</div>
+
+<h1>Maddineni<br>Jitendra</h1>
+
+<p>
+Versatile engineering student with a strong foundation in software development,
+full-stack web technologies, and data-driven problem solving. Experienced in
+building scalable applications, RESTful APIs, and working with modern data,
+machine learning, and cloud tools.
+</p>
+
+<div class="hero-buttons">
+<a href="#projects" class="btn btn-primary">View Projects</a>
+<a href="#contact" class="btn btn-outline">Get In Touch</a>
+</div>
+
+<div class="stats">
+<div class="stat">
+<h2>8.78</h2>
+<p>CGPA</p>
+</div>
+
+<div class="stat">
+<h2>4+</h2>
+<p>Projects</p>
+</div>
+
+<div class="stat">
+<h2>5+</h2>
+<p>Certifications</p>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Students Led</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="about" class="bg">
+<div class="container">
+
+<div class="section-label">ABOUT ME</div>
+<h2 class="section-title">Who I Am</h2>
+
+<div class="grid-2">
+
+<div class="card">
+<p>
+I am a Computer Science Engineering student at Koneru Lakshmaiah University
+with a specialization in Data Science & Big Data Analytics. I enjoy building
+scalable full-stack applications and solving real-world problems with data
+and machine learning.
+</p>
+</div>
+
+<div class="card">
+<p>
+My interests span Java and Python backend development, Spring Boot, React.js,
+NLP and machine learning, real-time data pipelines, databases, and cloud
+technologies — along with leadership activities and hackathons.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+
+<div class="section-label">EXPERIENCE</div>
+<h2 class="section-title">Professional Experience</h2>
+
+<div class="card">
+<h3>Software Engineer Intern</h3>
+<p><strong>Bharat Electronics Limited (BEL) | Remote</strong> — May 2025 – Jun 2025</p>
+
+<ul class="exp-list">
+<li>Worked on software development tasks in a defence and electronics environment using Java and Python for data processing and automation workflows.</li>
+<li>Collaborated with engineering teams on technical solutions, feature enhancements, and application testing.</li>
+<li>Used Git-based version control and CI/CD pipelines following agile development practices.</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section id="projects" class="bg">
+<div class="container">
+
+<div class="section-label">PROJECTS</div>
+<h2 class="section-title">Featured Projects</h2>
+
+<div class="projects-grid">
+
+<div class="card">
+<h3>Resume Screener with NLP</h3>
+<p>
+Built an automated resume screening system using a custom spaCy NER pipeline
+(200+ skills across 11 categories) to extract structured entities from
+PDF/DOCX/TXT resumes, with an interactive Streamlit recruiter dashboard.
+</p>
+
+<div class="tech-stack">
+<span class="tech">Python</span>
+<span class="tech">spaCy</span>
+<span class="tech">BERT</span>
+<span class="tech">Sentence-Transformers</span>
+<span class="tech">Streamlit</span>
+<span class="tech">pytest</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Fraud Detection on Financial Streams</h3>
+<p>
+Built a production-style real-time fraud detection pipeline streaming
+284K+ credit card transactions via Apache Kafka, using an XGBoost + SMOTE
+classifier tuned with Optuna to handle 0.17% fraud class imbalance.
+</p>
+
+<div class="tech-stack">
+<span class="tech">Python</span>
+<span class="tech">XGBoost</span>
+<span class="tech">Apache Kafka</span>
+<span class="tech">SMOTE</span>
+<span class="tech">Optuna</span>
+<span class="tech">MLflow</span>
+<span class="tech">Docker</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Online Banking System</h3>
+<p>
+Built a secure full-stack banking application with role-based access,
+15+ REST API endpoints, and optimized queries reducing API response time
+by 35%.
+</p>
+
+<div class="tech-stack">
+<span class="tech">Java</span>
+<span class="tech">Spring Boot</span>
+<span class="tech">Spring MVC</span>
+<span class="tech">JDBC</span>
+<span class="tech">React.js</span>
+<span class="tech">TypeScript</span>
+<span class="tech">MongoDB</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Student Report Management System</h3>
+<p>
+Developed an academic management platform managing 500+ student records,
+with automated report generation and role-based dashboards.
+</p>
+
+<div class="tech-stack">
+<span class="tech">Node.js</span>
+<span class="tech">React.js</span>
+<span class="tech">TypeScript</span>
+<span class="tech">MongoDB</span>
+<span class="tech">REST APIs</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+
+<div class="section-label">SKILLS</div>
+<h2 class="section-title">Technical Skills</h2>
+
+<div class="skills-grid">
+
+<div class="card">
+<h3>Languages</h3>
+<div class="skill-tags">
+<span class="skill-tag">Java</span>
+<span class="skill-tag">Python</span>
+<span class="skill-tag">SQL</span>
+<span class="skill-tag">R</span>
+<span class="skill-tag">C</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Data Science & ML</h3>
+<div class="skill-tags">
+<span class="skill-tag">Pandas</span>
+<span class="skill-tag">NumPy</span>
+<span class="skill-tag">Scikit-learn</span>
+<span class="skill-tag">XGBoost</span>
+<span class="skill-tag">SMOTE</span>
+<span class="skill-tag">Optuna</span>
+<span class="skill-tag">spaCy</span>
+<span class="skill-tag">BERT</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Big Data & Streaming</h3>
+<div class="skill-tags">
+<span class="skill-tag">Apache Kafka</span>
+<span class="skill-tag">Spark (PySpark)</span>
+<span class="skill-tag">Hadoop</span>
+<span class="skill-tag">Hive</span>
+<span class="skill-tag">Flink</span>
+</div>
+</div>
+
+<div class="card">
+<h3>MLOps & Tracking</h3>
+<div class="skill-tags">
+<span class="skill-tag">MLflow</span>
+<span class="skill-tag">Docker</span>
+<span class="skill-tag">CI/CD</span>
+<span class="skill-tag">pytest</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Visualization</h3>
+<div class="skill-tags">
+<span class="skill-tag">Power BI</span>
+<span class="skill-tag">Tableau</span>
+<span class="skill-tag">Plotly Dash</span>
+<span class="skill-tag">Streamlit</span>
+<span class="skill-tag">Matplotlib</span>
+<span class="skill-tag">Seaborn</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Frontend</h3>
+<div class="skill-tags">
+<span class="skill-tag">React.js</span>
+<span class="skill-tag">TypeScript</span>
+<span class="skill-tag">JavaScript</span>
+<span class="skill-tag">HTML5</span>
+<span class="skill-tag">CSS3</span>
+<span class="skill-tag">Bootstrap</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Backend</h3>
+<div class="skill-tags">
+<span class="skill-tag">Spring Boot</span>
+<span class="skill-tag">Spring MVC</span>
+<span class="skill-tag">Node.js</span>
+<span class="skill-tag">REST APIs</span>
+<span class="skill-tag">JDBC</span>
+<span class="skill-tag">Microservices</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Databases</h3>
+<div class="skill-tags">
+<span class="skill-tag">MongoDB</span>
+<span class="skill-tag">MySQL</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Cloud & DevOps</h3>
+<div class="skill-tags">
+<span class="skill-tag">Microsoft Azure</span>
+<span class="skill-tag">Oracle Cloud</span>
+<span class="skill-tag">Git</span>
+<span class="skill-tag">GitHub Actions</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Core Concepts</h3>
+<div class="skill-tags">
+<span class="skill-tag">DSA</span>
+<span class="skill-tag">OOP</span>
+<span class="skill-tag">DBMS</span>
+<span class="skill-tag">Operating Systems</span>
+<span class="skill-tag">Computer Networks</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="leadership" class="bg">
+<div class="container">
+
+<div class="section-label">LEADERSHIP</div>
+<h2 class="section-title">Leadership & Achievements</h2>
+
+<div class="card" style="margin-bottom:20px;">
+<h3>Focus Lead</h3>
+<p>
+Elected Lead of Focus (CSE Student Body), KL University, 2025–26 —
+led and mentored a team of 50+ students.
+</p>
+</div>
+
+<div class="card" style="margin-bottom:20px;">
+<h3>CORE & CHIEF Member</h3>
+<p>
+Served in Creative Arts & Logistics for major university cultural fests, 2025–2026.
+</p>
+</div>
+
+<div class="card" style="margin-bottom:20px;">
+<h3>Hackathons & Coding Competitions</h3>
+<p>
+Participated in data science hackathons, university-level coding competitions,
+and ML challenges.
+</p>
+</div>
+
+<div class="card">
+<h3>Workshops & Peer Learning</h3>
+<p>
+Conducted peer-learning sessions on Python, Data Science, Java, TypeScript,
+and DSA for junior students.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+
+<div class="section-label">EDUCATION</div>
+<h2 class="section-title">Education</h2>
+
+<div class="card">
+<h3>Koneru Lakshmaiah University</h3>
+
+<p>
+B.Tech in Computer Science Engineering (Honours)<br>
+Specialization: Data Science & Big Data Analytics<br>
+Aug 2023 – May 2027<br><br>
+<strong>GPA: 8.78 / 10</strong>
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="certifications" class="bg">
+<div class="container">
+
+<div class="section-label">CERTIFICATIONS</div>
+<h2 class="section-title">Certifications</h2>
+
+<div class="projects-grid">
+
+<div class="card">
+<h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+</div>
+
+<div class="card">
+<h3>Oracle Cloud Infrastructure 2025 Architect Associate</h3>
+</div>
+
+<div class="card">
+<h3>MongoDB Certified Associate Developer</h3>
+</div>
+
+<div class="card">
+<h3>Salesforce Certified AI Associate</h3>
+</div>
+
+<div class="card">
+<h3>Cambridge Linguaskill B2</h3>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container contact">
+
+<div class="section-label">CONTACT</div>
+<h2 class="section-title">Get In Touch</h2>
+
+<p style="color:#a0a0a8; margin-bottom:30px;">
+Open for internships, collaborations, and software engineering opportunities.
+</p>
+
+<div class="hero-buttons" style="justify-content:center;">
+<a href="mailto:2300030393cseh1@gmail.com" class="btn btn-primary">Email Me</a>
+<a href="https://linkedin.com/in/jitendramaddineni" class="btn btn-outline">LinkedIn</a>
+<a href="https://github.com/jithu30393" class="btn btn-outline">GitHub</a>
+</div>
+
+</div>
+</section>
+
+<div class="footer">
+© 2026 Maddineni Jitendra
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach((entry)=>{
+if(entry.isIntersecting){
+entry.target.style.opacity = "1";
+entry.target.style.transform = "translateY(0)";
+}
+});
+});
+
+document.querySelectorAll('.card').forEach((el)=>{
+el.style.opacity = "0";
+el.style.transform = "translateY(40px)";
+el.style.transition = "all 0.8s ease";
+observer.observe(el);
+});
+</script>
+
+</body>
+</html>
